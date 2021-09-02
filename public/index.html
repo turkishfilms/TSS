@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>TSS</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <div class='container topbar'>
+    <div class='row'>
+      <div class="btn-group col">
+        <buttom type="button" class="btn btn-light">Traveling Salesman Problem Solver</button>
+          <div class="btn-group">
+            <button type="button" id="algosel" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Algorithm
+            </button>
+
+            <div class="dropdown-menu algosel">
+              <a class="dropdown-item" onclick="
+          document.getElementById('algosel').innerHTML = `BruteForce`; delLastPt()" href="#">BruteForce (max:12)</a>
+              <a class="dropdown-item" onclick="
+          document.getElementById('algosel').innerHTML = `WikiHeat`; delLastPt()" href="#">WikiHeat</a>
+              <a class="dropdown-item" onclick="
+          document.getElementById('algosel').innerHTML = `BB`; delLastPt()" href="#">bb</a>
+            </div>
+          </div>
+          <button class="btn btn-success" onclick="run( 'bb')">Run</button>
+           <!-- document.getElementById('algosel').innerHTML.toLowerCase()
+            )">Run</button> -->
+          <button class="btn btn-danger" onclick="clr()">Clear</button>
+          <button class="btn btn-dark" onclick="col(this)">Color</button>
+          <button class="btn btn-secondary" onclick="
+        document.getElementById('picture').style.display = 'block'
+        ">Img</button>
+      </div>
+      <div class='data col'>
+        <ul class='list-group-horizontal list-group'>
+          <li class="list-group-item">
+            <p id='points'>Points: 0</p>
+          </li>
+          <li class="list-group-item">
+            <p id='og-dist'>Original Length: 0</p>
+          </li>
+          <li class="list-group-item">
+            <p id='shortest'>Shortest Distance: 0</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id='picture' class="">
+    <input type="file" id='pic' name="pic" accept="image/png, image/jpeg" onchange="picture(this.files[0])" />
+  </div>
+
+  <script src="sketch.js"></script>
+  <script src="p5.js"></script>
+  <script src="p5.dom.min.js"></script>
+</body>
+
+</html>
+
